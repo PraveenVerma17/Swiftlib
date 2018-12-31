@@ -20,7 +20,6 @@ public class AccountWithInstitution_A implements AccountWithInstitution, ITag {
   }
 
   /**
-   * @param partyIdentifier
    * @apiNote setting the party identifier value
    */
   public void setPartyIdentifier(String partyIdentifier) {

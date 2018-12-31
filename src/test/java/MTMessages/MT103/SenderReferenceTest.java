@@ -1,14 +1,13 @@
 package MTMessages.MT103;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class SenderReferenceTest {
+  SenderReference objSenderReference = new SenderReference();
 
   @Test
   public void isValid() {
-    SenderReference objSenderReference = new SenderReference();
     objSenderReference.setSenderReference("MMS353532");
     assertTrue(objSenderReference.isValid());
     objSenderReference.setSenderReference("/MMS35352");
@@ -21,4 +20,18 @@ public class SenderReferenceTest {
     assertFalse(objSenderReference.isValid());
 
   }
+
+  @Test
+  public void toSwiftString() {
+    objSenderReference.setSenderReference("MMS355222");
+    String response  =  objSenderReference.toSwiftString();
+    String expectedString  = ":20:MMS355222";
+    assertNotNull(response);
+    assertEquals(response, expectedString);
+    objSenderReference.setSenderReference("/MMS35222");
+    response = objSenderReference.toSwiftString();
+    assertNull(response);
+  }
+
+
 }

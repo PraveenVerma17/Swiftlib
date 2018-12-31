@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class SenderReference implements ITag {
@@ -49,6 +50,16 @@ public class SenderReference implements ITag {
     }
 
     return indValid;
+  }
+
+  public String toSwiftString()
+  {
+     if(this.isValid())
+     {
+       return String.format("%s%s%s%s", Constants.tagStart, this.getTag(), Constants.tagEnd, this.getSenderReference());
+     }
+     else
+       return null;
   }
 
 }
