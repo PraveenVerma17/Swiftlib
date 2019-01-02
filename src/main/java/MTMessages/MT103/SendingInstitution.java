@@ -6,14 +6,14 @@ public class SendingInstitution implements ITag {
   private final String tag = "51";
   private final String option = "A";
   private final String presence = "O";
-  private String value;
+  private String sendingInstitutionCode;
 
-  public String getValue() {
-    return value;
+  public String getSendingInstitutionCode() {
+    return sendingInstitutionCode;
   }
 
-  public void setValue(String value) {
-    this.value = value;
+  public void setSendingInstitutionCode(String sendingInstitutionCode) {
+    this.sendingInstitutionCode = sendingInstitutionCode;
   }
 
   @Override
