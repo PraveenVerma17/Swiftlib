@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.OrderingInstitution;
 
 public class OrderingInstitution_A implements OrderingInstitution, ITag {
-  private final String tag= "52";
-  private final String option = "A";
-  private final String presence = "O";
+  private final static String tag= "52";
+  private final static String option = "A";
+  private final static String presence = "O";
   private String partyIdentifier;
 
   public String getPartyIdentifier() {

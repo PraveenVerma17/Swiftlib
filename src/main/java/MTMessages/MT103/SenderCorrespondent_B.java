@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.SenderCorrespondent;
 
 public class SenderCorrespondent_B implements SenderCorrespondent, ITag {
-  private final String tag = "53";
-  private final String option  = "B";
-  private final String presence = "O";
+  private final static String tag = "53";
+  private final static String option  = "B";
+  private final static String presence = "O";
   private String partyIdentifier;
   private String location;
 

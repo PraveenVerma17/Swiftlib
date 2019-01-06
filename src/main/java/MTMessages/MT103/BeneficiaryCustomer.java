@@ -6,9 +6,10 @@ import MTMessages.MT103.Interfaces.ITag;
 import java.util.List;
 
 public class BeneficiaryCustomer implements BeneFiciaryCustomer, ITag {
-  private final String tag = "59";
-  private final String option =  "";
-  private final String presence = "M";
+  private final static String tag = "59";
+  private final static String option =  "";
+  private final static String presence = "M";
+
   private String account;
   private List<String> nameAddress;
 

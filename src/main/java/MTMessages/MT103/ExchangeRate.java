@@ -3,9 +3,9 @@ package MTMessages.MT103;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class ExchangeRate implements ITag {
-   private final String tag = "36";
-   private final String option = "";
-   private final String presence = "O";
+   private final static String tag = "36";
+   private final static String option = "";
+   private final static String presence = "O";
    private String exchangeRate;
 
   public String getExchangeRate() {

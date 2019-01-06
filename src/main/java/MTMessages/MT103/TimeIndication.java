@@ -5,9 +5,9 @@ import MTMessages.MT103.Enums.TimeIndicationSign;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class TimeIndication implements ITag {
-    private final String tag = "13";
-    private final String option = "C";
-    private final String presence = "O";
+    private final static String tag = "13";
+    private final static String option = "C";
+    private final static String presence = "O";
     private TimeIndicationCode code;
     private String time;
     private TimeIndicationSign sign;

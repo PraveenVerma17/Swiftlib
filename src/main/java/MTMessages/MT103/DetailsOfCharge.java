@@ -4,9 +4,9 @@ import MTMessages.MT103.Enums.DetailsOfChargeCode;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class DetailsOfCharge implements ITag {
-  private final String tag = "71";
-  private final String option = "A";
-  private final String presence = "M";
+  private final static  String tag = "71";
+  private final static  String option = "A";
+  private final static  String presence = "M";
   private DetailsOfChargeCode detailsOfChargeCode;
 
   public DetailsOfChargeCode getDetailsOfChargeCode() {

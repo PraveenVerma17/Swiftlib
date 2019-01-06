@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.IntermediaryInstitution;
 
 public class IntermediaryInstitution_A implements IntermediaryInstitution, ITag {
-  private final String tag = "56";
-  private final String option = "A";
-  private final String presence = "O";
+  private final static String tag = "56";
+  private final static String option = "A";
+  private final static String presence = "O";
   private String partyIdentifier;
   private String identifierCode;
 

@@ -6,9 +6,9 @@ import java.util.List;
 
 public class OrderingInstitution_D implements OrderingInstitution, ITag {
 
-  private final String tag= "52";
-  private final String option = "D";
-  private final String presence = "O";
+  private final static String tag= "52";
+  private final static String option = "D";
+  private final static String presence = "O";
   private String partyIdentifier;
 
   public String getPartyIdentifier() {

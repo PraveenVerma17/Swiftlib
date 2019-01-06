@@ -3,9 +3,10 @@ package MTMessages.MT103;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class CurrencyInstructedAmount implements ITag {
-  private final String tag = "33";
-  private final String option = "B";
-  private final String presence = "O";
+  private final static String tag = "33";
+  private final static String option = "B";
+  private final static String presence = "O";
+
   private String currency;
   private String instructedAmount;
 

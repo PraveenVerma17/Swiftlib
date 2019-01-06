@@ -3,9 +3,9 @@ package MTMessages.MT103;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class SenderCharges implements ITag {
-  private final String tag = "71";
-  private final String option  = "F";
-  private final String presence = "O";
+  private final static String tag = "71";
+  private final static String option  = "F";
+  private final static String presence = "O";
   private String currency;
   private String amount;
 

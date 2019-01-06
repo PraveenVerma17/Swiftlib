@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 
 public class ValueDtCurrencyInterBankAmount implements ITag {
 
-  private final String tag = "32";
-  private final String option  = "A";
-  private final String presence = "M";
+  private final static String tag = "32";
+  private final static String option  = "A";
+  private final static String presence = "M";
   private String valueDate;
 
   public String getValueDate() {

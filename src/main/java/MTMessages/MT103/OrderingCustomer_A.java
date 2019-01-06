@@ -6,9 +6,9 @@ import MTMessages.MT103.Interfaces.OrderingCustomer;
 public class OrderingCustomer_A implements OrderingCustomer, ITag {
    private String account;
    private String identifierCode;
-   private final String option = "A";
-   private final String tag = "50";
-   private final String presence = "M";
+   private final static String option = "A";
+   private final static String tag = "50";
+   private final static String presence = "M";
 
    public String getAccount() {
       return account;

@@ -8,9 +8,9 @@ import java.util.List;
 public class OrderingCustomer_K  implements OrderingCustomer, ITag {
   private String account;
   private List<String> nameAddress;
-  public final String option = "K";
-  public final String tag = "50";
-  private final String presence = "M";
+  public final static String option = "K";
+  public final static String tag = "50";
+  private final static String presence = "M";
 
   public String getAccount() {
     return account;

@@ -3,9 +3,9 @@ import MTMessages.MT103.Enums.BankOperationCodeEnum;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class BankOperationCode implements ITag {
-  private final String tag = "23";
-  private final String option = "B";
-  private final String presence = "M";
+  private final static String tag = "23";
+  private final static String option = "B";
+  private final static String presence = "M";
 
   private BankOperationCodeEnum bankOperationCode;
 

@@ -6,9 +6,9 @@ import MTMessages.MT103.Interfaces.ReceiverCorrespondent;
 import java.util.List;
 
 public class ReceiverCorrespondent_D implements ReceiverCorrespondent, ITag {
-  private final String tag ="54";
-  private final String option = "D";
-  private final String presence = "O";
+  private final static String tag ="54";
+  private final static String option = "D";
+  private final static String presence = "O";
   private String partyIdentifier;
   private List<String> nameAddress;
 

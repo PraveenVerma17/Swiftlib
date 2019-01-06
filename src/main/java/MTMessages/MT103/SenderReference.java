@@ -4,9 +4,9 @@ import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class SenderReference implements ITag {
-  private final String tag = "20";
-  private final String option = "";
-  private final String presence = "M";
+  private final static String tag = "20";
+  private final static String option = "";
+  private final static String presence = "M";
   private String senderReference;
 
   public String getSenderReference() {
@@ -41,7 +41,7 @@ public class SenderReference implements ITag {
       {
           if(this.senderReference.length() > 0 && this.senderReference.length() <= 16)
           {
-              if(this.senderReference.matches( "[0-9a-zA-Z/?:().',+-]{1,16}" ))
+              if(this.senderReference.matches(Constants.senderReferenceFormat))
             {
               indValid = true;
             }

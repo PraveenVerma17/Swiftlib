@@ -3,9 +3,9 @@ package MTMessages.MT103;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class InstructionCode implements ITag {
-  private final String tag = "23";
-  private final String option = "E";
-  private final String presence = "O";
+  private final static String tag = "23";
+  private final static String option = "E";
+  private final static String presence = "O";
   private InstructionCode code;
   private String additionalInformation;
 

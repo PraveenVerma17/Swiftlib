@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import java.util.List;
 
 public class RegulatoryReporting implements ITag {
-  private final String tag = "77";
-  private final String option = "B";
-  private final String presence = "O";
+  private final static String tag = "77";
+  private final static String option = "B";
+  private final static String presence = "O";
   private List<String> regulatoryLines;
 
 

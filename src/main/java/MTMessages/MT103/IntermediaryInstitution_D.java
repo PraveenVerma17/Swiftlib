@@ -6,9 +6,9 @@ import MTMessages.MT103.Interfaces.IntermediaryInstitution;
 import java.util.List;
 
 public class IntermediaryInstitution_D implements IntermediaryInstitution, ITag {
-  private final String tag = "56";
-  private final String option ="D";
-  private final String presence = "O";
+  private final static String tag = "56";
+  private final static String option ="D";
+  private final static String presence = "O";
   private String partyIdentifier;
   private List<String> nameAddress;
 

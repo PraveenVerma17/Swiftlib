@@ -5,9 +5,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import java.util.List;
 
 public class SenderToReceiverInformation implements ITag {
-  private final String tag = "72";
-  private final String option  = "";
-  private final String presence = "O";
+  private final static String tag = "72";
+  private final static String option  = "";
+  private final static String presence = "O";
   private List<String> senderToReceiverInfo;
 
   public List<String> getSenderToReceiverInfo() {

@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.ThirdReimbursementInstitution;
 
 public class ThirdReimbursementInstitution_B implements ThirdReimbursementInstitution, ITag {
-  private final String tag = "55";
-  private final String option = "B";
-  private final String presence = "O";
+  private final static String tag = "55";
+  private final static String option = "B";
+  private final static String presence = "O";
   private String partyIdentifier;
   private String location;
 

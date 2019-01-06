@@ -7,9 +7,9 @@ import java.util.List;
 
 public class SenderCorrespondent_D implements SenderCorrespondent, ITag {
 
-  private final String tag = "53";
-  private final String option = "D";
-  private final String presence = "O";
+  private final static String tag = "53";
+  private final static String option = "D";
+  private final static String presence = "O";
   private String partyIdentifier;
   private List<String> nameAddress;
 

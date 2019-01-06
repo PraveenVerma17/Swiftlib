@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.BeneFiciaryCustomer;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class BeneficiaryCustomer_A implements BeneFiciaryCustomer, ITag {
-  private final String tag = "59";
-  private final String option  = "A";
-  private final String presence = "M";
+  private final static String tag = "59";
+  private final static String option  = "A";
+  private final static String presence = "M";
 
   private String account;
   private String identifierCode;

@@ -4,9 +4,9 @@ import MTMessages.MT103.Interfaces.AccountWithInstitution;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class AccountWithInstitution_B implements AccountWithInstitution, ITag {
-  private final String tag = "57";
-  private final String option  = "B";
-  private final String presence = "O";
+  private final static String tag = "57";
+  private final static String option  = "B";
+  private final static String presence = "O";
 
   private String partyIdentifier;
   private String location;
