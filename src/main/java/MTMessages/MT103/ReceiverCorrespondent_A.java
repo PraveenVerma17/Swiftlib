@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.ReceiverCorrespondent;
 
@@ -41,5 +42,25 @@ public class ReceiverCorrespondent_A implements ReceiverCorrespondent, ITag {
     return presence;
   }
 
+  public boolean isValid()
+  {
+    boolean isIdentifierCdValid = false;
+    boolean isPartyIdentifierValid =  false;
 
+    //Check Identifier code validity
+    isIdentifierCdValid = (this.identifierCode != null
+            && this.identifierCode.length() >=8
+            && this.identifierCode.length() <= 11
+            && this.identifierCode.toUpperCase().matches(Constants.swiftBicFormat));
+
+    //Check PartyIdentifier validity
+    isPartyIdentifierValid = (this.partyIdentifier == null) ||
+            (this.partyIdentifier.length() >=2
+                    && this.partyIdentifier.length() <= 37
+                    && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
+
+
+    // When both are valid
+    return (isPartyIdentifierValid && isIdentifierCdValid);
+  }
 }

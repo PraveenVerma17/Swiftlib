@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.SenderCorrespondent;
 
@@ -44,5 +45,24 @@ public class SenderCorrespondent_D implements SenderCorrespondent, ITag {
     return presence;
   }
 
+  public boolean isValid()
+  {
+    boolean isNameAddressValid = false;
+    boolean isPartyIdentifierValid =  false;
+
+    isPartyIdentifierValid = (this.partyIdentifier ==null) ||
+            (this.partyIdentifier.length() >=2
+                    && this.partyIdentifier.length() <= 37
+                    && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
+
+
+    if(this.nameAddress !=null && this.nameAddress.size() > 0 && this.nameAddress.size() <= 4)
+    {
+      isNameAddressValid = this.nameAddress.stream().allMatch(line -> line.matches(Constants.nameAddressLineFormat));
+    }
+
+    // When both are valid
+    return (isPartyIdentifierValid && isNameAddressValid);
+  }
 
 }
