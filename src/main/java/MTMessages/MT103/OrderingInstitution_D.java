@@ -47,40 +47,21 @@ public class OrderingInstitution_D implements OrderingInstitution, ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isNameAddressValid = false;
     boolean isPartyIdentifierValid =  false;
 
-    if(this.partyIdentifier ==null){
-      isPartyIdentifierValid = true;
-    }else
-    {
-      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
-      {
-        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
-        {
-          isPartyIdentifierValid = true;
-        }
-      }
-    }
+    isPartyIdentifierValid = this.partyIdentifier ==null||
+                              (this.partyIdentifier.length() >=2
+                                  && this.partyIdentifier.length() <= 37
+                                  && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
 
     if(this.nameAndAddress !=null && this.nameAndAddress.size() > 0 && this.nameAndAddress.size() <= 4)
     {
-      for (String line :this.nameAndAddress) {
-        if(line !=null && line.matches(Constants.nameAddressLineFormat))
-        {
-          isNameAddressValid = true;
-        }else
-        {
-          isNameAddressValid = false;
-          break;
-        }
-      }
+      isNameAddressValid =  this.nameAndAddress.stream().allMatch(line -> line.matches(Constants.nameAddressLineFormat));
     }
 
     // When both are valid
-    isValid =  (isPartyIdentifierValid && isNameAddressValid);
-    return isValid;
+    return (isPartyIdentifierValid && isNameAddressValid);
   }
 
 }

@@ -48,34 +48,20 @@ public class BeneficiaryCustomer_A implements BeneFiciaryCustomer, ITag {
   {
     boolean isAccountValid =  false;
     boolean isIdentifierCodeValid  = false;
-    boolean isValid = false;
 
-    if(this.account == null)
-    {
-      isAccountValid = true;
-    }else
-    {
-      if(this.account.length() >=1 && this.account.length() <= 34)
-      {
-        if(this.account.matches(Constants.beniCustomerAcctFormat))
-        {
-          isAccountValid = true;
-        }
-      }
-    }
+    isAccountValid = (this.account == null) ||
+                    (this.account.length() >=1
+                            && this.account.length() <= 34
+                            && this.account.matches(Constants.beniCustomerAcctFormat));
 
-    if(this.identifierCode !=null)
-    {
-      if(this.identifierCode.length() >=8 && this.identifierCode.length() <= 11)
-      {
-         if(this.identifierCode.matches(Constants.swiftBicFormat))
-         {
-           isIdentifierCodeValid = true;
-         }
-      }
-    }
 
-    return isValid = (isAccountValid && isIdentifierCodeValid);
+    isIdentifierCodeValid  = (this.identifierCode !=null
+                                  && this.identifierCode.length() >=8
+                                  && this.identifierCode.length() <= 11
+                                  && this.identifierCode.matches(Constants.swiftBicFormat));
+
+
+    return (isAccountValid && isIdentifierCodeValid);
   }
 
 }

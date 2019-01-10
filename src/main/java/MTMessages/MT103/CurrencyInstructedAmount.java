@@ -44,30 +44,17 @@ public class CurrencyInstructedAmount implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isCurrencyValid = false;
     boolean isInstructedAmountValid = false;
 
-    if(this.currency != null)
-    {
-       if(this.currency.matches(Constants.currencyFormat))
-       {
-         isCurrencyValid = true;
-       }
-    }
+    isCurrencyValid =(this.currency != null && this.currency.matches(Constants.currencyFormat));
 
-    if(this.instructedAmount != null)
-    {
-        if(this.instructedAmount.length() >= 2 && this.instructedAmount.length() <= 15)
-        {
-          if(this.instructedAmount.matches(Constants.amountFormat))
-          {
-            isInstructedAmountValid =  true;
-          }
-        }
-    }
+    isInstructedAmountValid = (this.instructedAmount != null
+                                  && this.instructedAmount.length() >= 2
+                                  && this.instructedAmount.length() <= 15
+                                  && this.instructedAmount.matches(Constants.amountFormat));
 
-    return isValid = (isCurrencyValid && isInstructedAmountValid);
+    return (isCurrencyValid && isInstructedAmountValid);
   }
 
 }

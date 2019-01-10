@@ -35,20 +35,10 @@ public class ExchangeRate implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
-
-    if(this.exchangeRate != null)
-    {
-        if(this.exchangeRate.length() >= 2 && this.exchangeRate.length() <= 12)
-        {
-          if(this.exchangeRate.matches(Constants.exchangeRateFormat))
-          {
-            isValid = true;
-          }
-        }
-    }
-
-    return isValid;
+    return (this.exchangeRate != null
+            && this.exchangeRate.length() >= 2
+            && this.exchangeRate.length() <= 12
+            && this.exchangeRate.matches(Constants.exchangeRateFormat));
   }
 
 }

@@ -36,13 +36,6 @@ public class BankOperationCode implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
-
-    if(this.bankOperationCode != null)
-    {
-      isValid = true;
-    }
-
-    return isValid;
+    return this.bankOperationCode != null;
   }
 }

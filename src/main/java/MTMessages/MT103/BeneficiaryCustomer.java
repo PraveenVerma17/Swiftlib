@@ -50,36 +50,18 @@ public class BeneficiaryCustomer implements BeneFiciaryCustomer, ITag {
   {
     boolean isAccountValid =  false;
     boolean isNameAddressValid  = false;
-    boolean isValid = false;
 
-    if(this.account == null)
-    {
-      isAccountValid = true;
-    }else
-    {
-      if(this.account.length() >=1 && this.account.length() <= 34)
-      {
-        if(this.account.matches(Constants.beniCustomerAcctFormat))
-        {
-          isAccountValid = true;
-        }
-      }
-    }
+    isAccountValid = (this.account == null) ||
+                     (this.account.length() >=1
+                             && this.account.length() <= 34
+                             && this.account.matches(Constants.beniCustomerAcctFormat));
+
 
     if(this.nameAddress !=null && this.nameAddress.size() > 0 && this.nameAddress.size() <= 4)
     {
-      for (String line :this.nameAddress) {
-        if(line !=null && line.matches(Constants.nameAddressLineFormat))
-        {
-          isNameAddressValid = true;
-        }else
-        {
-          isNameAddressValid = false;
-          break;
-        }
-      }
+      isNameAddressValid = this.nameAddress.stream().allMatch(line -> line.matches(Constants.nameAddressLineFormat));
     }
 
-    return isValid = (isAccountValid && isNameAddressValid);
+    return (isAccountValid && isNameAddressValid);
   }
 }

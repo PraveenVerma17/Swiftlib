@@ -45,38 +45,25 @@ public class AccountWithInstitution_B implements AccountWithInstitution, ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isLocationValid = false;
     boolean isPartyIdentifierValid =  false;
 
-    if(this.partyIdentifier ==null){
-      isPartyIdentifierValid = true;
-    }else
-    {
-      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
-      {
-        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
-        {
-          isPartyIdentifierValid = true;
-        }
-      }
-    }
+    //Check Party identifier validity
+    isPartyIdentifierValid = this.partyIdentifier == null ||
+                             (this.partyIdentifier.length() >=2
+                                     && this.partyIdentifier.length() <= 37
+                                     && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
 
-    if(this.location == null)
-    {
-      isLocationValid = true;
-    }else
-    {
-      if(this.location.length() >= 1 && this.location.length() <=35) {
-        if (this.location.matches(Constants.locationFormat)) {
-          isLocationValid = true;
-        }
-      }
-    }
+
+    //Check location validity
+    isLocationValid =  this.location == null ||
+                       (this.location.length() >= 1
+                               && this.location.length() <=35
+                               && this.location.matches(Constants.locationFormat));
+
 
     // When both are valid
-    isValid =  (isPartyIdentifierValid && isLocationValid);
-    return isValid;
+    return (isPartyIdentifierValid && isLocationValid);
   }
 
 }

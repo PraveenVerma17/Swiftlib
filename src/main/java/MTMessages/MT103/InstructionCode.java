@@ -44,31 +44,18 @@ public class InstructionCode implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isCodeValid = false;
     boolean isAdditionalInfoValid = false;
 
 
-    if(this.code !=null)
-    {
-      isCodeValid = true;
-    }
+    isCodeValid = this.code !=null;
 
-    if(this.additionalInformation == null){
-      isAdditionalInfoValid = true;
-    }
-    else
-    {
-      if(this.additionalInformation.length() >= 1 && this.additionalInformation.length() <= 30)
-      {
-        if(this.additionalInformation.matches(Constants.additionalInfoFormat))
-        {
-          isAdditionalInfoValid = true;
-        }
-      }
-    }
+    isAdditionalInfoValid =(this.additionalInformation == null)||
+                            (this.additionalInformation.length() >= 1
+                                    && this.additionalInformation.length() <= 30
+                                    && this.additionalInformation.matches(Constants.additionalInfoFormat));
 
-    return isValid = (isCodeValid && isAdditionalInfoValid);
+    return  (isCodeValid && isAdditionalInfoValid);
   }
 
 }

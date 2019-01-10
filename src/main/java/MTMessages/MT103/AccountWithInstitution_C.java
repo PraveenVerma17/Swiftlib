@@ -36,18 +36,10 @@ public class AccountWithInstitution_C  implements AccountWithInstitution, ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
-
-    if(this.partyIdentifier !=null){
-      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
-      {
-        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
-        {
-          isValid = true;
-        }
-      }
-    }
-    return isValid;
+    return (this.partyIdentifier !=null
+            && this.partyIdentifier.length() >=2
+            && this.partyIdentifier.length() <= 37
+            && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
   }
 
 }

@@ -43,30 +43,17 @@ public class ReceiverCharges implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isCurrencyValid  = false;
     boolean isAmountValid  = false;
 
-    if(this.currency != null)
-    {
-      if(this.currency.matches(Constants.currencyFormat))
-      {
-        isCurrencyValid = true;
-      }
-    }
+    isCurrencyValid = (this.currency != null && this.currency.matches(Constants.currencyFormat));
 
-    if(this.amount != null)
-    {
-      if(this.amount.length() >= 2 && this.amount.length() <= 15)
-      {
-        if(this.amount.matches(Constants.amountFormat))
-        {
-          isAmountValid =  true;
-        }
-      }
-    }
+    isAmountValid = (this.amount != null
+                        && this.amount.length() >= 2
+                        && this.amount.length() <= 15
+                        && this.amount.matches(Constants.amountFormat));
 
-    return isValid = (isCurrencyValid && isAmountValid);
+    return (isCurrencyValid && isAmountValid);
   }
 
 }

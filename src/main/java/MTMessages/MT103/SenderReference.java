@@ -39,12 +39,9 @@ public class SenderReference implements ITag {
     {
       if(!this.senderReference.startsWith("/") && !this.senderReference.endsWith("/") && !this.senderReference.contains("//"))
       {
-          if(this.senderReference.length() > 0 && this.senderReference.length() <= 16)
+          if(this.senderReference.length() > 0 && this.senderReference.length() <= 16 && this.senderReference.matches(Constants.senderReferenceFormat))
           {
-              if(this.senderReference.matches(Constants.senderReferenceFormat))
-            {
               indValid = true;
-            }
           }
       }
     }

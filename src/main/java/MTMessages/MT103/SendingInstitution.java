@@ -44,37 +44,21 @@ public class SendingInstitution implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
     boolean isIdentifierCdValid = false;
     boolean isPartyIdentifierValid =  false;
 
-    if(this.identifierCode != null)
-    {
-      if(this.identifierCode.length() >=8 && this.identifierCode.length() <= 11)
-      {
-        if(this.identifierCode.toUpperCase().matches(Constants.swiftBicFormat))
-        {
-          isIdentifierCdValid = true;
-        }
-      }
-    }
+    isIdentifierCdValid = (this.identifierCode != null
+                            && this.identifierCode.length() >=8
+                            && this.identifierCode.length() <= 11
+                            && this.identifierCode.toUpperCase().matches(Constants.swiftBicFormat));
 
-    if(this.partyIdentifier ==null){
-      isPartyIdentifierValid = true;
-    }else
-    {
-      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
-      {
-        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
-        {
-          isPartyIdentifierValid = true;
-        }
-      }
-    }
+    isPartyIdentifierValid = (this.partyIdentifier ==null) ||
+                              (this.partyIdentifier.length() >=2
+                                      && this.partyIdentifier.length() <= 37
+                                      && this.partyIdentifier.matches(Constants.partyIdentifierFormat));
 
     // When both are valid
-    isValid =  (isPartyIdentifierValid && isIdentifierCdValid);
-    return isValid;
+    return (isPartyIdentifierValid && isIdentifierCdValid);
   }
 
 

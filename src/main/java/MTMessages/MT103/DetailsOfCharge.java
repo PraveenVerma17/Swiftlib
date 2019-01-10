@@ -34,14 +34,7 @@ public class DetailsOfCharge implements ITag {
 
   public boolean isValid()
   {
-    boolean isValid = false;
-
-    if(this.detailsOfChargeCode !=null)
-    {
-      isValid = true;
-    }
-
-    return isValid;
+    return this.detailsOfChargeCode !=null;
   }
 
 }
