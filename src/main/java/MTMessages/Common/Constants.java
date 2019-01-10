@@ -15,4 +15,12 @@ public class Constants {
   public static final String swiftBicFormat = "[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}([0-9A-Z]{3})?";
   public static final String senderReferenceFormat = "[0-9a-zA-Z/?:().',+-]{1,16}";
   public static final String partyIdentifierFormat = "/(C/|D/)?[0-9a-zA-Z/\\-\\?:\\(\\)\\.,'\\+ ]{1,34}";
+  public static final String locationFormat = "[0-9a-zA-Z/\\-\\?:\\(\\)\\.,'\\+ ]{1,35}";
+  public static final String nameAddressLineFormat = "[0-9a-zA-Z/\\-\\?:\\(\\)\\.,'\\+ ]{1,35}";
+  public static final String beniCustomerAcctFormat = "[0-9a-zA-Z/\\-\\?:\\(\\)\\.,'\\+ ]{1,34}";
+  public static final String currencyFormat = "[A-Z]{3}";
+  public static final String amountFormat = "[0-9]+,[0-9]*";
+  public static final String exchangeRateFormat = "[0-9]+,[0-9]*";
+  public static final String additionalInfoFormat = "[0-9a-zA-Z/\\-\\?:\\(\\)\\.,'\\+ ]{1,30}";
+
 }

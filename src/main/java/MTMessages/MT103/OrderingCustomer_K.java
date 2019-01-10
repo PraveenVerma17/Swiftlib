@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.OrderingCustomer;
 
@@ -41,6 +42,44 @@ public class OrderingCustomer_K  implements OrderingCustomer, ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+    boolean isAccountValid = false;
+    boolean isNameAddressValid = false;
+
+    if(this.account == null)
+    {
+      isAccountValid = true;
+    }else
+    {
+      if(this.account.length() >= 1 && this.account.length() <= 34)
+      {
+        if(this.account.matches(Constants.beniCustomerAcctFormat))
+        {
+          isAccountValid = true;
+        }
+      }
+    }
+
+    if(this.nameAddress !=null && this.nameAddress.size() > 0 && this.nameAddress.size() <= 4)
+    {
+      for (String line :this.nameAddress) {
+        if(line !=null && line.matches(Constants.nameAddressLineFormat))
+        {
+          isNameAddressValid = true;
+        }else
+        {
+          isNameAddressValid = false;
+          break;
+        }
+      }
+    }
+
+
+    return isValid = (isAccountValid && isNameAddressValid);
   }
 
 }

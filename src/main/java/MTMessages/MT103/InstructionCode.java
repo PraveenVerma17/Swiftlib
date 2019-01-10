@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class InstructionCode implements ITag {
@@ -38,6 +39,36 @@ public class InstructionCode implements ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+    boolean isCodeValid = false;
+    boolean isAdditionalInfoValid = false;
+
+
+    if(this.code !=null)
+    {
+      isCodeValid = true;
+    }
+
+    if(this.additionalInformation == null){
+      isAdditionalInfoValid = true;
+    }
+    else
+    {
+      if(this.additionalInformation.length() >= 1 && this.additionalInformation.length() <= 30)
+      {
+        if(this.additionalInformation.matches(Constants.additionalInfoFormat))
+        {
+          isAdditionalInfoValid = true;
+        }
+      }
+    }
+
+    return isValid = (isCodeValid && isAdditionalInfoValid);
   }
 
 }

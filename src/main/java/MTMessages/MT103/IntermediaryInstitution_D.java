@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 import MTMessages.MT103.Interfaces.IntermediaryInstitution;
 
@@ -45,5 +46,41 @@ public class IntermediaryInstitution_D implements IntermediaryInstitution, ITag 
     return presence;
   }
 
+  public boolean isValid()
+  {
+    boolean isValid = false;
+    boolean isNameAddressValid = false;
+    boolean isPartyIdentifierValid =  false;
 
+    if(this.partyIdentifier ==null){
+      isPartyIdentifierValid = true;
+    }else
+    {
+      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
+      {
+        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
+        {
+          isPartyIdentifierValid = true;
+        }
+      }
+    }
+
+    if(this.nameAddress !=null && this.nameAddress.size() > 0 && this.nameAddress.size() <= 4)
+    {
+      for (String line :this.nameAddress) {
+        if(line !=null && line.matches(Constants.nameAddressLineFormat))
+        {
+          isNameAddressValid = true;
+        }else
+        {
+          isNameAddressValid = false;
+          break;
+        }
+      }
+    }
+
+    // When both are valid
+    isValid =  (isPartyIdentifierValid && isNameAddressValid);
+    return isValid;
+  }
 }

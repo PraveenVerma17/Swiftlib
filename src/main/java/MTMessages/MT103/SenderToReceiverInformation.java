@@ -34,4 +34,13 @@ public class SenderToReceiverInformation implements ITag {
   }
 
 
+  public boolean isValid()
+  {
+    boolean isValid = false;
+
+
+
+    return isValid;
+  }
+
 }

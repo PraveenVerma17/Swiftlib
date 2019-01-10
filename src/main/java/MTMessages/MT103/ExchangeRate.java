@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class ExchangeRate implements ITag {
@@ -29,6 +30,25 @@ public class ExchangeRate implements ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+
+    if(this.exchangeRate != null)
+    {
+        if(this.exchangeRate.length() >= 2 && this.exchangeRate.length() <= 12)
+        {
+          if(this.exchangeRate.matches(Constants.exchangeRateFormat))
+          {
+            isValid = true;
+          }
+        }
+    }
+
+    return isValid;
   }
 
 }

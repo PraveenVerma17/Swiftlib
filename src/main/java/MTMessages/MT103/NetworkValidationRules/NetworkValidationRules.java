@@ -60,36 +60,6 @@ public class NetworkValidationRules {
          }
       }
 
-
-    /**
-     * Rules C2
-     */
-
-    if(message.getSendingInstitution() !=null
-            && message.getSendingInstitution().getSendingInstitutionCode() !=null
-            && message.getAccountWithInstitution() != null
-            && ((AccountWithInstitution_A)message.getAccountWithInstitution()).getIdentifierCode() !=null)
-    {
-      String sendingInstitute = message.getSendingInstitution().getSendingInstitutionCode();
-      String sendingInstituteCtry = sendingInstitute.substring(3, 4);
-      String receiverInstitute =  ((AccountWithInstitution_A)message.getAccountWithInstitution()).getIdentifierCode();
-      String receiverInstituteCtry =  receiverInstitute.substring(3, 4);
-
-      if(Constants.ruleC2CntryList.contains(sendingInstituteCtry)
-              && Constants.ruleC2CntryList.contains(receiverInstituteCtry)
-              && message.getCurrencyInstructedAmount() == null){
-        ValidationRule rule = new ValidationRule();
-        rule.setRuleCode("C2");
-        violations.add(rule);
-        response.setValid(false);
-      }
-    }
-
-
-    /**
-     *
-     */
-
     return response;
   }
 

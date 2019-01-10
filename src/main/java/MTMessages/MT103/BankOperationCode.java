@@ -1,4 +1,6 @@
 package MTMessages.MT103;
+
+
 import MTMessages.MT103.Enums.BankOperationCodeEnum;
 import MTMessages.MT103.Interfaces.ITag;
 
@@ -30,5 +32,17 @@ public class BankOperationCode implements ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+
+    if(this.bankOperationCode != null)
+    {
+      isValid = true;
+    }
+
+    return isValid;
   }
 }

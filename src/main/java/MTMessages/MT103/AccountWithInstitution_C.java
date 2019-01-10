@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.AccountWithInstitution;
 import MTMessages.MT103.Interfaces.ITag;
 
@@ -31,6 +32,22 @@ public class AccountWithInstitution_C  implements AccountWithInstitution, ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+
+    if(this.partyIdentifier !=null){
+      if(this.partyIdentifier.length() >=2 && this.partyIdentifier.length() <= 37)
+      {
+        if(this.partyIdentifier.matches(Constants.partyIdentifierFormat))
+        {
+          isValid = true;
+        }
+      }
+    }
+    return isValid;
   }
 
 }

@@ -1,5 +1,6 @@
 package MTMessages.MT103;
 
+import MTMessages.Common.Constants;
 import MTMessages.MT103.Interfaces.ITag;
 
 public class CurrencyInstructedAmount implements ITag {
@@ -39,6 +40,34 @@ public class CurrencyInstructedAmount implements ITag {
   @Override
   public String getPresence() {
     return presence;
+  }
+
+  public boolean isValid()
+  {
+    boolean isValid = false;
+    boolean isCurrencyValid = false;
+    boolean isInstructedAmountValid = false;
+
+    if(this.currency != null)
+    {
+       if(this.currency.matches(Constants.currencyFormat))
+       {
+         isCurrencyValid = true;
+       }
+    }
+
+    if(this.instructedAmount != null)
+    {
+        if(this.instructedAmount.length() >= 2 && this.instructedAmount.length() <= 15)
+        {
+          if(this.instructedAmount.matches(Constants.amountFormat))
+          {
+            isInstructedAmountValid =  true;
+          }
+        }
+    }
+
+    return isValid = (isCurrencyValid && isInstructedAmountValid);
   }
 
 }

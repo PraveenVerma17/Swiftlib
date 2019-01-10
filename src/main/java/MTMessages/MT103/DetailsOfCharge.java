@@ -32,4 +32,16 @@ public class DetailsOfCharge implements ITag {
     return presence;
   }
 
+  public boolean isValid()
+  {
+    boolean isValid = false;
+
+    if(this.detailsOfChargeCode !=null)
+    {
+      isValid = true;
+    }
+
+    return isValid;
+  }
+
 }
